@@ -48,8 +48,12 @@ Wir vermuten $\sup A = 1$.
 1. Ist 1 eine obere Schranke? Ja, denn $1 - \frac{1}{n} < 1$ für alle $n$.
 2. Ist es die kleinste? Wähle ein beliebiges $\varepsilon > 0$. Wir müssen zeigen, dass $1 - \varepsilon$ keine Schranke ist. Wir suchen also ein $n$, sodass $1 - \frac{1}{n} > 1 - \varepsilon$. Das ist äquivalent zu $\frac{1}{n} < \varepsilon$ oder $n > \frac{1}{\varepsilon}$. Da wir immer so ein natürliches Zahl $n$ finden können, ist 1 tatsächlich das Supremum.
 
+![](/real-analysis/week-2/supremum_and_infimum/example.png)
+
 ### Gegenbeispiel
 Betrachte die Menge $A = \{ x \in \mathbb{Q} : x^2 < 2 \}$. Wir suchen das Supremum in der Menge der rationalen Zahlen $\mathbb{Q}$. Das Problem ist: Es gibt keine rationale Zahl $q$, deren Quadrat genau 2 ist. Die "Lücke", wo $\sqrt{2}$ sein sollte, ist in $\mathbb{Q}$ nicht definiert. Daher hat diese Menge in $\mathbb{Q}$ kein Supremum. Das ist der Grund, warum wir Analysis in $\mathbb{R}$ betreiben – $\mathbb{R}$ ist "vollständig", dort existiert das Supremum $\sqrt{2}$.
+
+![](/real-analysis/week-2/supremum_and_infimum/counter_example.png)
 
 ## 3. Unterschied zu Maximum und Minimum
 

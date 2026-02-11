@@ -1,68 +1,68 @@
 # Teaching Notes (Static)
 
-Minimalistische Next.js (App Router) Seite für wöchentliche Notizen zu verschiedenen Themen.
+Minimalist Next.js (App Router) site for weekly notes on various topics.
 
 ## Content Workflow
 
-### Struktur
+### Structure
 
 ```
 content/
 ├── real-analysis/
 │   ├── week-2/
-│   │   ├── index.md          # Wochen-Zusammenfassung
+│   │   ├── index.md          # Weekly Summary
 │   │   └── topics/
-│   │       └── supremum.md   # Themen-Seite
-│   └── _drafts/              # Entwürfe (nicht publiziert)
-└── linear-algebra/           # Weitere Fächer (Zukunft)
+│   │       └── supremum.md   # Topic Page
+│   └── _drafts/              # Drafts (unpublished)
+└── linear-algebra/           # Other subjects (future)
 ```
 
-- **Fach-Ordner**: `content/<fach>/` (z.B. `real-analysis`, `linear-algebra`)
-- **Wochen-Übersicht (Summary)**: `content/<fach>/week-<n>/index.md`
-- **Themen-Seiten**: `content/<fach>/week-<n>/topics/<slug>.md`
-- **Entwürfe (nicht publiziert)**: `content/<fach>/_drafts/week-<n>/...`
+- **Subject Folder**: `content/<subject>/` (e.g., `real-analysis`, `linear-algebra`)
+- **Week Overview (Summary)**: `content/<subject>/week-<n>/index.md`
+- **Topic Pages**: `content/<subject>/week-<n>/topics/<slug>.md`
+- **Drafts (unpublished)**: `content/<subject>/_drafts/week-<n>/...`
 
-Alles unter `_drafts/` wird beim Build ignoriert.
+Everything under `_drafts/` is ignored during the build.
 
-### Frontmatter für Wochen
+### Frontmatter for Weeks
 
 ```md
 ---
-title: "Woche 5"
+title: "Week 5"
 week: 5
 date: "2026-02-11"
-description: "Kurzbeschreibung."
+description: "Short description."
 ---
 ```
 
-Die Sortierung der Wochen erfolgt nach `week` (absteigend).
+Weeks are sorted by `week` (descending).
 
-### Frontmatter für Themen
+### Frontmatter for Topics
 
 ```md
 ---
-title: "Supremum und Infimum"
+title: "Supremum and Infimum"
 order: 1
-description: "Kernideen, Beispiele, Gegenbeispiele."
+description: "Core ideas, examples, counterexamples."
 ---
 ```
 
-Die Sortierung innerhalb einer Woche erfolgt nach `order` (aufsteigend).
+Topics within a week are sorted by `order` (ascending).
 
-## Bilder / Assets
+## Images / Assets
 
-- Lege Bilder unter `public/<fach>/week-<n>/...` ab.
-- Verlinke Bilder im Markdown so:
+- Place images under `public/<subject>/week-<n>/...`.
+- Link images in Markdown like this:
 
 ```md
 ![](/real-analysis/week-5/differentiability/intuition.png)
 ```
 
-**Wichtig**: Das `basePath: "/teaching"` in der Next.js-Konfiguration fügt automatisch `/teaching` vor allen URLs hinzu. Die Bilder müssen aber den vollen Pfad mit Fach-Name enthalten (z.B. `/real-analysis/...`), da mehrere Fächer unterstützt werden.
+**Important**: The `basePath: "/teaching"` in the Next.js configuration automatically adds `/teaching` before all URLs. However, images must include the full path with the subject name (e.g., `/real-analysis/...`) because multiple subjects are supported.
 
 ## Callouts / Admonitions
 
-Blockquotes mit Prefix werden automatisch als Callouts gerendert:
+Blockquotes with a prefix are automatically rendered as callouts:
 
 ```md
 > [!DEFINITION]
@@ -84,14 +84,14 @@ Blockquotes mit Prefix werden automatisch als Callouts gerendert:
 > Text...
 ```
 
-## Lokale Entwicklung
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Build (statischer Export):
+Build (static export):
 
 ```bash
 npm run build
@@ -99,24 +99,23 @@ npm run build
 
 ## Deployment (GitHub Pages)
 
-Die GitHub Actions Pipeline baut und deployed den statischen Export nach
-GitHub Pages (Project Site, Base Path `/teaching`). Workflow-Datei:
+The GitHub Actions pipeline builds and deploys the static export to GitHub Pages (Project Site, Base Path `/teaching`). Workflow file:
 `.github/workflows/deploy.yml`.
 
-**Wichtig**: Repo-Name sollte `teaching` sein für die URL `https://<user>.github.io/teaching/`.
+**Important**: Repo name should be `teaching` for the URL `https://<user>.github.io/teaching/`.
 
-## Seitenstruktur
+## Page Structure
 
-- `/teaching/` → Landing Page (Fächerliste)
-- `/teaching/<fach>/` → Wochenübersicht für ein Fach
-- `/teaching/<fach>/week-<n>/` → Wochen-Summary + Themenliste
-- `/teaching/<fach>/week-<n>/<topic>/` → Themen-Seite
+- `/teaching/` → Landing Page (Subject List)
+- `/teaching/<subject>/` → Weekly overview for a subject
+- `/teaching/<subject>/week-<n>/` → Weekly Summary + Topic List
+- `/teaching/<subject>/week-<n>/<topic>/` → Topic Page
 
-## Neues Fach hinzufügen
+## Add New Subject
 
-1. Erstelle Ordner: `content/<fach-slug>/`
-2. Füge Wochen hinzu: `content/<fach-slug>/week-1/index.md`
-3. Füge Themen hinzu: `content/<fach-slug>/week-1/topics/intro.md`
-4. Bilder: `public/<fach-slug>/week-1/...`
+1. Create folder: `content/<subject-slug>/`
+2. Add weeks: `content/<subject-slug>/week-1/index.md`
+3. Add topics: `content/<subject-slug>/week-1/topics/intro.md`
+4. Images: `public/<subject-slug>/week-1/...`
 
-Das Fach wird automatisch auf der Startseite aufgelistet. Der Fach-Titel wird aus dem Ordner-Namen generiert (z.B. `real-analysis` → "Real Analysis").
+The subject is automatically listed on the home page. The subject title is generated from the folder name (e.g., `real-analysis` → "Real Analysis").
