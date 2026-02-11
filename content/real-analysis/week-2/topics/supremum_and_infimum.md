@@ -75,6 +75,8 @@ Sei $A = (0, 1)$. Das Intervall ist offen. Die Zahl 1 gehört *nicht* dazu.
 $\sup A = 1$, aber $\max A$ existiert nicht.
 Warum? Angenommen $m \in (0, 1)$ wäre das Maximum. Dann ist $m < 1$. Die Zahl $\frac{m+1}{2}$ liegt genau zwischen $m$ und 1. Sie ist also größer als $m$, aber immer noch in $A$. Widerspruch dazu, dass $m$ das Größte war.
 
+![](/real-analysis/week-2/supremum_and_infimum/counter_example.png)
+
 ## Übungen
 
 1. Bestimme, falls existent, Infimum, Supremum, Minimum und Maximum der Menge $M = \{ \frac{1}{n} + (-1)^n : n \in \mathbb{N} \}$.
